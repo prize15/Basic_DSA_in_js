@@ -1,0 +1,75 @@
+Linked List Code Explanation
+Node Class:
+The Node class represents a single element in the linked list. Each node contains two properties:
+
+data: Stores the value of the node.
+next: A reference to the next node in the list (initially set to null).
+-----------------
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+-----------------
+LinkedList Class :
+The LinkedList class manages the linked list. It has the following properties and methods:
+
+Constructor: Initializes the linked list with a head property set to null, indicating an empty list.
+-----------------
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+-----------------  
+add(data): Adds a new node with the given data to the end of the list.
+Creates a new Node instance :
+If the list is empty (head is null), the new node becomes the head.
+Otherwise, it traverses the list to find the last node and sets its next property to the new node.
+
+----------------
+  add(data) {
+    const newNode = new Node(data);
+    if (this.head === null) {
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = newNode;
+    }
+  }
+-----------------  
+printList(): Prints the data of each node in the list.
+Starts from the head and traverses the list.
+Logs the data of each node to the console.
+----------------
+
+  printList() {
+    let current = this.head;
+    while (current) {
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+}
+--------------
+Example Usage
+Creates a new LinkedList instance.
+Adds nodes with data 10 and 20.
+Prints the list, which outputs 10 and 20.
+----------------
+
+const list = new LinkedList();
+list.add(10);
+list.add(20);
+list.printList(); // Output: 10 20
+-----------------
+Summary
+Node Class: Represents each element in the list.
+LinkedList Class: Manages the list, allowing nodes to be added and printed.
+add(data): Adds a new node to the end of the list.
+printList(): Prints all nodes’ data in the list.
+This implementation provides a basic structure for a singly linked list,
+ where each node points to the next node in the sequence. 
